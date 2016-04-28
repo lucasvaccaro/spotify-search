@@ -1,0 +1,48 @@
+<div ng-controller="ArtistsController" ng-init="init(searchCtrl.currentData.data)">
+
+    <div class="panel panel-default artists-panel">
+        <div style="text-align: center" class="panel-heading">
+            <h1>{{artistData.name}}</h1>
+        </div>
+        <div class="panel-body">
+
+            <center><img class="imgBorder" ng-src="{{artistData.images[1].url}}"></center>
+
+            <div class="panel panel-default artists-panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">About</h3>
+                </div>
+                <div class="panel-body about">
+                    <div class="row">
+                        Popularity: <span class="label" ng-class="{'label-warning': artistData.popularity<30, 'label-info': artistData.popularity>=30 && artistData.popularity<70, 'label-success': artistData.popularity>=70}">{{artistData.popularity}}%</span>
+                    </div>
+                    <div class="row">
+                        Genres: <span class="label label-primary" ng-repeat="genre in artistData.genres">{{genre}}</span>
+                        <span class="label label-default" ng-show="artistData.genres.length == 0">None Specified</span>
+                    </div>
+                    <div class="row">
+                        Number of Followers: {{artistData.followers.total | number }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default artists-panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Top Tracks</h3>
+                </div>
+                <div >
+                    <top-tracks-list artist-id="{{artistData.id}}"></top-tracks-list>
+                </div>
+            </div>
+
+            <div class="panel panel-default artists-panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Albums</h3>
+                </div>
+                <div class="panel-body">
+                    <albuns-list artist-id="{{artistData.id}}"></albuns-list>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

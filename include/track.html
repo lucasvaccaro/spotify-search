@@ -1,0 +1,9 @@
+<h2>{{searchCtrl.currentData.data.name}}</h2>
+<h3>by {{searchCtrl.currentData.data.artists[0].name}}</h2>
+<h3>in {{searchCtrl.currentData.data.album.name}}</h3>
+
+<h4>Preview:</h4>
+<audio controls>
+    <source ng-src="{{searchCtrl.currentData.data.preview_url | trusted}}" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>

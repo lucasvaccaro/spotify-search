@@ -1,0 +1,12 @@
+<thead>
+	<tr>
+		<th>Name</th>
+		<th>Followers</th>
+	</tr>
+</thead>
+<tbody>
+	<tr role="button" ng-repeat="item in tab.content" ng-click="searchCtrl.setCurrentData(tab.endpoint, item.id, tab.file)">
+		<td>{{item.name}}</td>
+		<td>{{item.followers.total}}</td>
+	</tr>
+</tbody>

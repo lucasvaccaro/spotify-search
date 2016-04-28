@@ -1,0 +1,18 @@
+<table class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Artist</th>
+			<th>Album</th>
+			<th>Popularity</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="track in tracks">
+			<td>{{track.name}}</td>
+			<td>{{track.artists[0].name}}</td>
+			<td>{{track.album.name}}</td>
+			<td><span class="label" ng-class="{'label-warning': track.popularity<30, 'label-info': track.popularity>=30 && track.popularity<70, 'label-success': track.popularity>=70}">{{track.popularity}}%</span></td>
+		</tr>
+	</tbody>
+</table>

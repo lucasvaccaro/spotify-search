@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="SpotifySearch">
+
+<head>
+	<title>Spotify Search</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="page" ng-controller="SearchController as searchCtrl">
+		<h1 class="text-center">
+			<img src="img/logo.png"> Spotify Search
+		</h1>
+		<hr>
+		<div ng-show="searchCtrl.currentData == null">
+			<form>
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Type your query..." ng-model="search" ng-keyup="searchCtrl.setDataList(null, search)" autofocus>
+				</div>
+			</form>
+			<uib-tabset active="activeJustified" justified="true">
+				<uib-tab index="$index" ng-repeat="tab in searchCtrl.tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled" select="searchCtrl.setDataList($index, search);">
+					<table class="table table-striped table-hover" ng-include="tab.list"></table>
+				</uib-tab>
+			</uib-tabset>
+		</div>
+		<div ng-show="searchCtrl.currentData != null">
+			<a class="btn btn-default" ng-click="searchCtrl.goBack()">Back</a>
+			<div ng-include="searchCtrl.currentData.file"></div>
+        </div>
+        <div class="loading" ng-show="searchCtrl.loading == true">
+	    	<img src="img/loading.gif">
+	    </div>
+	</div>
+</body>
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-touch.min.js"></script>
+<script src="js/ui-bootstrap-tpls-1.3.1.min.js"></script>
+<script src="js/script.js"></script>
+
+</html>
