@@ -1,13 +1,9 @@
 # Spotify Search
 
-Spotify API search using AngularJS.  
-Project developed in the Advanced Web Technologies course (CISC 474) / Spring 2016 / University of Delaware
+Spotify API search using AngularJS.
 
-__Class:__  
-CISC 474 - Advanced Web Technologies
-
-__Group members:__  
-Yilun Li  
+**Collaborators:**    
 Khaliq Gatsom  
+Lucas Vaccaro  
 Luis Gustavo Simioni Centeleghe  
-Lucas Vaccaro
+Yilun Li
